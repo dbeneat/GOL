@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alien CPU</title>
+    <title>Game of life</title>
     <style>
         body {
             background-color: black;
@@ -21,11 +21,38 @@
     </style>
 </head>
 <body>
-    <h1>Game of life</h1>
-    <video class="center" controls autoplay loop muted>
+    <video id="video" class="center" controls autoplay loop muted>
         <source src="final_short.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+
+<script>
+
+
+
+window.addEventListener('resize', resize, false);
+
+video.height = 100; /* to get an initial width to work with*/
+resize();
+
+function resize() {
+videoRatio = video.height / video.width;
+windowRatio = window.innerHeight / window.innerWidth; /* browser size */
+
+    if (windowRatio < videoRatio) {
+        if (window.innerHeight > 50) { /* smallest video height */
+                video.height = window.innerHeight;
+        } else {
+            video.height = 50;
+    }
+    } else {
+        video.width = window.innerWidth;
+    }
+
+};
+
+
+</script>
 
 </body>
 </html>
